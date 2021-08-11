@@ -1,0 +1,5 @@
+com/lsk/community/back/auth/controller/Controller.class
+com/lsk/community/back/auth/authc/Authc.class
+com/lsk/community/back/auth/model/User.class
+com/lsk/community/back/auth/mapper/UserMapper.class
+com/lsk/community/back/auth/AuthApplication.class

@@ -1,0 +1,4 @@
+com/lsk/community/back/gateway/controller/Controller.class
+com/lsk/community/back/gateway/configuration/Beans.class
+com/lsk/community/back/gateway/captcha/Captcha.class
+com/lsk/community/back/gateway/GatewayApplication.class

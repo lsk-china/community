@@ -1,0 +1,5 @@
+/data/lsk/communitiy/back/auth/src/main/java/com/lsk/community/back/auth/AuthApplication.java
+/data/lsk/communitiy/back/auth/src/main/java/com/lsk/community/back/auth/authc/Authc.java
+/data/lsk/communitiy/back/auth/src/main/java/com/lsk/community/back/auth/controller/Controller.java
+/data/lsk/communitiy/back/auth/src/main/java/com/lsk/community/back/auth/mapper/UserMapper.java
+/data/lsk/communitiy/back/auth/src/main/java/com/lsk/community/back/auth/model/User.java
