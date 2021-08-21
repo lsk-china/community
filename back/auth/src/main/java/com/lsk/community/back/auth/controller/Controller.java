@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class Controller {
@@ -28,7 +29,7 @@ public class Controller {
 	@JsonReturn
 	@RequireRequestKey
 	@PostMapping("/login")
-	public Object login(@CookieValue("token") String token, String identity, String password) {
+	public Object login(@CookieValue("token") String token, String identity, String password, @CookieValue("reqKey") String requestKey, HttpServletRequest req) {
 		authc.login(token, identity, password);
 		return new Object();  // 实际会返回{code: 0, data:{}, message: "Success"}
 	}
