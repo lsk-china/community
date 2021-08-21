@@ -1,13 +1,18 @@
 <template>
-
+  <div class="mainContainer">
+    <header-component></header-component>
+  </div>
 </template>
 
 <script>
+import Header from './header'
+
 export default {
-  name: "index"
+  name: 'index',
+  components: {
+    headerComponent: Header
+  }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style src="../style/index.less" lang="less" scoped></style>
