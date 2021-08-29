@@ -4,15 +4,13 @@ import com.lsk.community.back.auth.authc.Authc;
 import com.lsk.community.back.common.authz.aspect.annotation.RequireRequestKey;
 import com.lsk.community.back.common.response.aspect.annotation.JsonReturn;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+@CrossOrigin
 @RestController
 public class Controller {
 	@Autowired
