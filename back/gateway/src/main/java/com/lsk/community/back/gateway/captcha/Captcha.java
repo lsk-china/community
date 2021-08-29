@@ -39,7 +39,8 @@ public class Captcha {
 		// 保存验证码信息到redis
 		redis.set(codeID + "-CODETEXT", codeText, 600);
 		Map<String, String> result = new HashMap<>();
-		result.put(codeID, base64Image);
+		result.put("codeID", codeID);
+		result.put("codeImage", base64Image);
 		return result;
 	}
 	public String checkCaptcha(String codeID, String codeText, String targetURL, String clientIP) {
