@@ -2,7 +2,7 @@ import axios from 'axios'
 
 let gatewayAxios = axios.create({
   withCredentials: true,
-  baseURL: 'http://localhost:11003/'
+  baseURL: 'http://localhost:9103/'
 })
 
 const gateway = {
@@ -25,7 +25,7 @@ const gateway = {
           targetURL: targetURL
         }
       })
-      return resp
+      return resp.data
     } catch (e) {
       console.log(e)
     }

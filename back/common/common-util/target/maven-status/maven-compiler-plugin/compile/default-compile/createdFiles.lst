@@ -3,4 +3,6 @@ com/lsk/community/back/common/utils/SecurityUtil.class
 com/lsk/community/back/common/utils/SpringUtil.class
 com/lsk/community/back/common/utils/UtilAutoConfigure.class
 com/lsk/community/back/common/utils/StringUtil.class
+com/lsk/community/back/common/utils/DebugUtilImpl.class
 com/lsk/community/back/common/utils/CloudUtil.class
+com/lsk/community/back/common/utils/EmptyDebugUtil.class

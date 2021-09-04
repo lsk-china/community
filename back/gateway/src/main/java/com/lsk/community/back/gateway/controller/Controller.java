@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
-@CrossOrigin
 @RestController
 public class Controller {
 	@Autowired
@@ -23,7 +22,7 @@ public class Controller {
 
 	@JsonReturn
 	@GetMapping("/generateCaptcha")
-	public Object generateCaptcha() throws IOException {
+	public Object generateCaptcha(HttpServletResponse resp, HttpServletRequest req) throws IOException {
 		return captcha.generateCaptcha();
 	}
 

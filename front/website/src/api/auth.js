@@ -2,7 +2,10 @@ import axios from 'axios'
 
 let authAxios = axios.create({
   withCredentials: true,
-  baseURL: 'http://localhost:11001/'
+  baseURL: 'http://localhost:9101/',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
 })
 
 const auth = {
