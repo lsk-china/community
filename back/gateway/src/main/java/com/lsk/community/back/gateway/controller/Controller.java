@@ -1,5 +1,6 @@
 package com.lsk.community.back.gateway.controller;
 
+import com.lsk.community.back.common.response.aspect.annotation.Cors;
 import com.lsk.community.back.gateway.captcha.Captcha;
 import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,14 @@ public class Controller {
 	@Autowired
 	private Captcha captcha;
 
+	@Cors
 	@JsonReturn
 	@GetMapping("/generateCaptcha")
 	public Object generateCaptcha(HttpServletResponse resp, HttpServletRequest req) throws IOException {
 		return captcha.generateCaptcha();
 	}
 
+	@Cors
 	@JsonReturn
 	@GetMapping("/checkCaptcha")
 	public Object checkCaptcha(HttpServletResponse resp, HttpServletRequest req, String codeID, String codeText, String targetURL) {

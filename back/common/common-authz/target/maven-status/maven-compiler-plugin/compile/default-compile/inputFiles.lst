@@ -1,4 +1,7 @@
 /data/lsk/communitiy/back/common/common-authz/src/main/java/com/lsk/community/back/common/authz/AuthzAutoConfigure.java
 /data/lsk/communitiy/back/common/common-authz/src/main/java/com/lsk/community/back/common/authz/util/ReflectionUtil.java
+/data/lsk/communitiy/back/common/common-authz/src/main/java/com/lsk/community/back/common/authz/client/GatewayClient.java
 /data/lsk/communitiy/back/common/common-authz/src/main/java/com/lsk/community/back/common/authz/aspect/RequestKeyAspect.java
 /data/lsk/communitiy/back/common/common-authz/src/main/java/com/lsk/community/back/common/authz/aspect/annotation/RequireRequestKey.java
+/data/lsk/communitiy/back/common/common-authz/src/main/java/com/lsk/community/back/common/authz/holder/HolderFilter.java
+/data/lsk/communitiy/back/common/common-authz/src/main/java/com/lsk/community/back/common/authz/holder/ReqAndRespHolder.java

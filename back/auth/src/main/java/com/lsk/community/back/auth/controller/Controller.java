@@ -4,6 +4,7 @@ import com.lsk.community.back.auth.authc.Authc;
 import com.lsk.community.back.common.authz.aspect.annotation.RequireRequestKey;
 import com.lsk.community.back.common.response.aspect.annotation.Cors;
 import com.lsk.community.back.common.response.aspect.annotation.JsonReturn;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  * Controller
  * auth模块的控制器类
  */
+@Slf4j
 @RestController
 public class Controller {
 	@Autowired
@@ -54,14 +56,28 @@ public class Controller {
 	 * {code: 404, data: {}, message: "User not found"} : 失败，用户未找到
 	 */
 
-	@Cors
 	@JsonReturn
 	@RequireRequestKey
 	@PostMapping("/login")
 	public Object login(@CookieValue("token") String token, String identity, String password, @CookieValue("reqKey") String requestKey, HttpServletRequest req) {
+		log.info("Identity: " + identity + " password: " + password + "token: " + token);
 		authc.login(token, identity, password);
 		return new Object();  // 实际会返回{code: 0, data:{}, message: "Success"}
 	}
+
+	/**
+	 * 为/login接口处理CORS
+	 * @param resp 请求对象
+	 * @param resp 响应对象
+	 */
+
+//	@RequestMapping(value = "/login", method = RequestMethod.OPTIONS)
+//	public void loginCors(HttpServletRequest req, HttpServletResponse resp) {
+//		resp.addHeader("Access-Control-Allow-Origin", req.getHeader("Origin"));
+//		resp.addHeader("Access-Control-Allow-Credentials", "true");
+//		resp.addHeader("Access-Control-Allow-Methods", "POST");
+//		resp.addHeader("Access-Control-Allow-Headers", "*");
+//	}
 //	@JsonReturn
 //	@PostMapping("/loginWithNewToken")
 //	public Object loginWithNewToken(HttpServletResponse resp, String identity, String password) {

@@ -18,3 +18,7 @@ common:
 lsk:
   debug:
     enabled: true
+logging:
+  level:
+    com.lsk.community.back.common.authz.holder: DEBUG
+    com.lsk.community.back.common.response.holder: DEBUG

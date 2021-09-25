@@ -33,7 +33,7 @@
 
 <script>
 // import auth from '../api/auth'
-import gateway from '../gateway'
+import gateway from '../api/gateway'
 import auth from '../api/auth'
 
 export default {

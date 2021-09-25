@@ -10,10 +10,10 @@
         <module name="common-util" />
         <module name="apis" />
         <module name="auth" />
-        <module name="common-response" />
         <module name="common-mail" />
-        <module name="community" />
+        <module name="common-response" />
         <module name="common-authz" />
+        <module name="community" />
         <module name="common-redis" />
         <module name="gateway" />
       </profile>
