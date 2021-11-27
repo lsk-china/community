@@ -1,8 +1,0 @@
-server:
-  port: 11002
-spring:
-  application:
-    name: community
-  cloud:
-    nacos:
-      server-addr: localhost:8848
