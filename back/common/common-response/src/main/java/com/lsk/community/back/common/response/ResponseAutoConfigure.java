@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 @ComponentScan
-@ServletComponentScan
+// @ServletComponentScan
 public class ResponseAutoConfigure {
 	@Bean
 	@ConditionalOnMissingBean(Gson.class)

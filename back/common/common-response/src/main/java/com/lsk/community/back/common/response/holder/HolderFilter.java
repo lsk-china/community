@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 
 @Slf4j
-@WebFilter(filterName = "ResponseHolderFilter")
+// @WebFilter(filterName = "ResponseHolderFilter")
 public class HolderFilter implements Filter {
 	public void init(FilterConfig config) throws ServletException {
 	}

@@ -1,0 +1,4 @@
+/data/lsk/communitiy/backend/common/common-redis/src/main/java/com/lsk/community/common/redis/RedisComponent.java
+/data/lsk/communitiy/backend/common/common-redis/src/main/java/com/lsk/community/common/redis/RedisAutoConfigure.java
+/data/lsk/communitiy/backend/common/common-redis/src/main/java/com/lsk/community/common/redis/StringUtil.java
+/data/lsk/communitiy/backend/common/common-redis/src/main/java/com/lsk/community/common/redis/RedisConfig.java

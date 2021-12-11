@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * HolderFilter
+ * AuthzHolderFilter
  * 把请求和响应对象存入ReqAndRespHolder中，并在RequsetKeyAspect中使用。
  */
 
 @Slf4j
 @WebFilter(filterName = "AuthzHolderFilter")
-public class HolderFilter implements Filter {
+public class AuthzHolderFilter implements Filter {
 	public void init(FilterConfig config) throws ServletException {
 	}
 

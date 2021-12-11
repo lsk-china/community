@@ -1,7 +1,7 @@
-com/lsk/community/back/common/authz/holder/HolderFilter.class
 com/lsk/community/back/common/authz/holder/ReqAndRespHolder.class
 com/lsk/community/back/common/authz/aspect/annotation/RequireRequestKey.class
 com/lsk/community/back/common/authz/aspect/RequestKeyAspect.class
 com/lsk/community/back/common/authz/AuthzAutoConfigure.class
 com/lsk/community/back/common/authz/util/ReflectionUtil.class
 com/lsk/community/back/common/authz/client/GatewayClient.class
+com/lsk/community/back/common/authz/holder/AuthzHolderFilter.class

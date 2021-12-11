@@ -21,19 +21,20 @@ public class Controller {
 	@Autowired
 	private Captcha captcha;
 
-	@Cors
+	// @Cors
 	@JsonReturn
 	@GetMapping("/generateCaptcha")
 	public Object generateCaptcha(HttpServletResponse resp, HttpServletRequest req) throws IOException {
 		return captcha.generateCaptcha();
 	}
 
-	@Cors
+	// @Cors
 	@JsonReturn
 	@GetMapping("/checkCaptcha")
 	public Object checkCaptcha(HttpServletResponse resp, HttpServletRequest req, String codeID, String codeText, String targetURL) {
 		String requestKey = captcha.checkCaptcha(codeID, codeText, targetURL, req.getRemoteAddr());
 		Cookie reqKeyCookie = new Cookie("reqKey", requestKey);
+		reqKeyCookie.setPath("/");
 		resp.addCookie(reqKeyCookie);
 		return new Object();
 	}
@@ -44,4 +45,5 @@ public class Controller {
 	public boolean checkRequestKey(String reqKey, String targetURL, String clientIP) {
 		return captcha.checkRequestKey(clientIP, reqKey, targetURL);
 	}
+
 }

@@ -35,6 +35,8 @@
 // import auth from '../api/auth'
 import gateway from '../api/gateway'
 import auth from '../api/auth'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 
 export default {
   name: 'login',

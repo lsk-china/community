@@ -27,17 +27,17 @@ public class Controller {
 	 * URL: /token
 	 * 方法: GET
 	 * 获取token
-	 * @param resp 响应对象，由Spring注入
+	 *
 	 */
 
-	@Cors
+	// @Cors
 	@GetMapping("/token")
 	public void token(HttpServletResponse resp) {
-		String token = authc.token();
-		Cookie tokenCookie = new Cookie("token", token);
-		tokenCookie.setMaxAge(86400);
-		resp.addCookie(tokenCookie);
-	}
+	    String token =  authc.token();
+	    Cookie cookie = new Cookie("token", token);
+		cookie.setPath("/");
+        resp.addCookie(cookie);
+    }
 
 	/**
 	 * login
@@ -59,7 +59,7 @@ public class Controller {
 	@JsonReturn
 	@RequireRequestKey
 	@PostMapping("/login")
-	public Object login(@CookieValue("token") String token, String identity, String password, @CookieValue("reqKey") String requestKey, HttpServletRequest req) {
+	public Object login(String token, String identity, String password, @CookieValue("reqKey") String requestKey, HttpServletRequest req) {
 		log.info("Identity: " + identity + " password: " + password + "token: " + token);
 		authc.login(token, identity, password);
 		return new Object();  // 实际会返回{code: 0, data:{}, message: "Success"}
