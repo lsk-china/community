@@ -28,10 +28,11 @@ public class RedisAutoConfigure {
 		jedisPoolConfig.setMaxTotal(10);
 		jedisPoolConfig.setMaxWaitMillis(10000);
 		String password = redisProperties.getPassword();
+		int database = redisProperties.getDatabase();
 		if (StringUtil.isEmpty(password)) {
-			return new JedisPool(jedisPoolConfig, redisProperties.getHost(), redisProperties.getPort(), 2000);
+			return new JedisPool(jedisPoolConfig, redisProperties.getHost(), redisProperties.getPort(), 2000, "", database);
 		} else {
-			return new JedisPool(jedisPoolConfig, redisProperties.getHost(), redisProperties.getPort(), 2000, password);
+			return new JedisPool(jedisPoolConfig, redisProperties.getHost(), redisProperties.getPort(), 2000, password, database);
 		}
 	}
 

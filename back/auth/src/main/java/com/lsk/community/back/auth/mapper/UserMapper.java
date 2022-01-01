@@ -16,4 +16,6 @@ public interface UserMapper {
 	public User queryUserByUsernameOrEmail(@Param("data") String data);
 	@Insert("insert into user(username,password,mail) values(#{username}, #{password}, #{mail})")
 	public void createUser(User user);
+	@Select("select * from user where id=#{id}")
+	public User queryUserById(@Param("id") Integer id);
 }

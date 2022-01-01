@@ -19,14 +19,14 @@ public class UtilAutoConfigure {
 
 	@Bean
 	@ConditionalOnMissingBean(DebugUtil.class)
-	@ConditionalOnProperty(prefix = "lsk.debug", name = "enabled", havingValue = "true")
+	@ConditionalOnProperty(prefix = "common.debug", name = "enabled", havingValue = "true")
 	public DebugUtil debugUtilImpl() {
 		return new DebugUtilImpl();
 	}
 
 	@Bean
 	@ConditionalOnMissingBean(DebugUtil.class)
-	@ConditionalOnProperty(prefix = "lsk.debug", name = "enabled", havingValue = "false")
+	@ConditionalOnProperty(prefix = "common.debug", name = "enabled", havingValue = "false")
 	public DebugUtil emptyDebugUtil() {
 		return new EmptyDebugUtil();
 	}
