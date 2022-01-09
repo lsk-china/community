@@ -79,7 +79,8 @@ public class RequestKeyAspect {
 			String clientIP = req.getRemoteAddr();
 			// 测试用！127.0.0.1->0:0:0:0:0:0:0:1
 			if (clientIP.equals("127.0.0.1") || clientIP.equals("0:0:0:0:0:0:0:1")) {
-				clientIP = "127.0.0.1";
+				//clientIP = "127.0.0.1";
+				clientIP = "0:0:0:0:0:0:0:1";
 			}
 			// 构建请求参数
 			Map<String, Object> params = new HashMap<>();

@@ -53,4 +53,8 @@ public class Authc {
 		}
 		return user;
 	}
+	public String status(String token) {
+		String redisStatus =  redis.get(token + "-STATUS", String.class);
+		return redisStatus == null || redisStatus.equals("") ? "GUEST" : redisStatus;
+	}
 }

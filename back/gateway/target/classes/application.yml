@@ -6,3 +6,11 @@ spring:
   cloud:
     nacos:
       server-addr: localhost:8848
+common:
+  debug:
+    enabled: true
+  redis:
+    host: localhost
+    port: 6379
+    database: 2
+    password: lsk123456

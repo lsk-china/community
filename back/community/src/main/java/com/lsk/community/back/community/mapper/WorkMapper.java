@@ -1,6 +1,6 @@
 package com.lsk.community.back.community.mapper;
 
-import com.lsk.community.back.community.work.Work;
+import com.lsk.community.back.community.model.Work;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -15,8 +15,8 @@ public interface WorkMapper {
 	public Work queryWorkById(@Param("id") Integer id);
 	@Select("select * from work where owner=#{uid}")
 	public List<Work> queryOnesWork(@Param("uid") Integer id);
-	@Select("select * from work where visible=1 limit (${pageNo}-1)*${pageSize}, ${pageSize}")
-	public List<Work> queryAllVisibleWorks(@Param("pageNo") Integer pageNo, @Param("pageSize") Integer pageSize);
+	@Select("select * from work where visible=1 limit ${start}, ${pageSize}")
+	public List<Work> queryAllVisibleWorks(@Param("start") Integer start, @Param("pageSize") Integer pageSize);
 	@Select("select * from work where visible=0")
 	public List<Work> queryAllInvisibleWorks();
 	@Insert("insert into work(name, owner) values(#{name}, #{owner})")

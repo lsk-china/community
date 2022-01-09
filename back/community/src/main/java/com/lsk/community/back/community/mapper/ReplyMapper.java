@@ -1,6 +1,6 @@
 package com.lsk.community.back.community.mapper;
 
-import com.lsk.community.back.community.reply.Reply;
+import com.lsk.community.back.community.model.Reply;
 import com.lsk.community.back.community.reply.ReplyType;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

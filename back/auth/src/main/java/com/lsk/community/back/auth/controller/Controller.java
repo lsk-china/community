@@ -3,6 +3,7 @@ package com.lsk.community.back.auth.controller;
 import com.lsk.community.back.auth.authc.Authc;
 import com.lsk.community.back.common.authz.aspect.annotation.RequireRequestKey;
 import com.lsk.community.back.common.response.aspect.annotation.Cors;
+import com.lsk.community.back.common.response.aspect.annotation.DebugAPI;
 import com.lsk.community.back.common.response.aspect.annotation.JsonReturn;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +65,15 @@ public class Controller {
 		authc.login(token, identity, password);
 		return new Object();  // 实际会返回{code: 0, data:{}, message: "Success"}
 	}
+
+	@JsonReturn
+	@DebugAPI
+	@PostMapping("/loginDebug")
+	public Object loginDebug(@CookieValue("token") String token, String identity, String password, HttpServletRequest req) {
+		log.info("Identity: " + identity + " password: " + password + "token: " + token);
+		authc.login(token, identity, password);
+		return new Object();  // 实际会返回{code: 0, data:{}, message: "Success"}
+	}
 //	@RequestMapping(value = "/login", method = RequestMethod.OPTIONS)
 //	public void loginCors(HttpServletRequest req, HttpServletResponse resp) {
 //		resp.addHeader("Access-Control-Allow-Origin", req.getHeader("Origin"));
@@ -85,5 +95,10 @@ public class Controller {
 	@GetMapping("/useringo")
 	public Object userinfo(@CookieValue("token") String token) {
 		return authc.userinfo(token);
+	}
+
+	@GetMapping("/status")
+	public String status(String token) {
+		return authc.status(token);
 	}
 }

@@ -1,6 +1,7 @@
-package com.lsk.community.back.community.reply;
+package com.lsk.community.back.community.model;
 
 import com.gitee.sunchenbin.mybatis.actable.annotation.*;
+import com.lsk.community.back.community.reply.ReplyType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ public class Reply {
 
 	@Column
 	@IsNotNull
-	private ReplyType type;
+	private String type;
 
 	@IsNotNull
 	@Column(comment = "回复的目标id")

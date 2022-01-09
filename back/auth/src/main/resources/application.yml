@@ -16,6 +16,7 @@ common:
     host: localhost
     port: 6379
     database: 2
+    password: lsk123456
   debug:
     enabled: true
 logging:

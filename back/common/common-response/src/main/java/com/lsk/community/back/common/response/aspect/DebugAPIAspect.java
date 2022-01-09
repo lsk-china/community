@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class DebugAPIAspect {
-	@Value("common.debug.enabled")
-	public Boolean enableDebug;
+	@Value("${common.debug.enabled}")
+	public String enableDebug;
 
 
 	@Pointcut("@annotation(com.lsk.community.back.common.response.aspect.annotation.DebugAPI)")
@@ -19,7 +19,7 @@ public class DebugAPIAspect {
 
 	@Before("pointcut()")
 	public void before() {
-		if (!enableDebug) {
+		if (!enableDebug.equals("true")) {
 			throw new StatusCode(400, "This api is debug-only!");
 		}
 	}

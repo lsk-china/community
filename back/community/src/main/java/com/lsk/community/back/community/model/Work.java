@@ -1,4 +1,4 @@
-package com.lsk.community.back.community.work;
+package com.lsk.community.back.community.model;
 
 import com.gitee.sunchenbin.mybatis.actable.annotation.*;
 import lombok.AllArgsConstructor;

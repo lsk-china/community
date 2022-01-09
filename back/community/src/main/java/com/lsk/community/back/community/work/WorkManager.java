@@ -1,10 +1,13 @@
 package com.lsk.community.back.community.work;
 
+import com.google.gson.Gson;
 import com.lsk.community.back.common.redis.RedisComponent;
+import com.lsk.community.back.community.client.AuthClient;
 import com.lsk.community.back.community.mapper.WorkMapper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +22,10 @@ public class WorkManager {
 	private RedisComponent redis;
 	@Autowired
 	private WorkMapper workMapper;
+	@Autowired
+	private AuthClient authClient;
+	@Autowired
+	private Gson gson;
 
 	public WorkStatistic updateWorkStatistic(int diffVisible, int diffInvisible, WorkStatistic oldValue) {
 		oldValue.setVisible(oldValue.getVisible() + diffVisible);
@@ -46,12 +53,17 @@ public class WorkManager {
 		result.put("currentPage", page);
 		result.put("pageSize", pageSize);
 		result.put("totalPages", Math.ceil(workStatistic.getTotal() / pageSize));
-		result.put("result", workMapper.queryAllVisibleWorks(page, pageSize));
+		result.put("result", workMapper.queryAllVisibleWorks((page - 1) * pageSize, pageSize));
 		return result;
 	}
 
+	public void createWork(String name, String token) {
+		Map<String, Object> userinfo = gson.fromJson(authClient.userinfo(token), Map.class);
+		Integer uid = (Integer) userinfo.get("uid");
+		workMapper.createWork(name, uid);
+	}
+
 	@Data
-	@NoArgsConstructor
 	public static class WorkStatistic {
 		private Integer total;
 		private Integer visible;
@@ -59,6 +71,12 @@ public class WorkManager {
 
 		public void calcTotal() {
 			this.total = this.visible + this.invisible;
+		}
+
+		public WorkStatistic(){
+			this.total = 0;
+			this.visible = 0;
+			this.invisible = 0;
 		}
 	}
 }
