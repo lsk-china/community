@@ -45,4 +45,16 @@ public class Authc {
 		login(token, identity, password);
 		return token;
 	}
+	public User userinfo(String token) {
+		Integer uid = redis.get(token + "-ID", Integer.class);
+		User user = userMapper.queryUserById(uid);
+		if (user == null) {
+			throw new StatusCode(404, "User not found");
+		}
+		return user;
+	}
+	public String status(String token) {
+		String redisStatus =  redis.get(token + "-STATUS", String.class);
+		return redisStatus == null || redisStatus.equals("") ? "GUEST" : redisStatus;
+	}
 }

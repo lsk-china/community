@@ -2,13 +2,26 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/apis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/common-authz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-authz/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/common-mail/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-mail/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/common-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-redis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/common-response/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-response/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/common-util/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-util/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/community/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>

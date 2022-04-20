@@ -5,6 +5,7 @@ import com.lsk.community.back.common.redis.RedisComponent;
 import com.lsk.community.back.common.response.StatusCode;
 import com.lsk.community.back.common.utils.SecurityUtil;
 import com.lsk.community.back.common.utils.StringUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.ClientHttpResponseStatusCodeException;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+@Slf4j
 @Component
 public class Captcha {
 	@Autowired
@@ -37,30 +39,35 @@ public class Captcha {
 		// 保存验证码信息到redis
 		redis.set(codeID + "-CODETEXT", codeText, 600);
 		Map<String, String> result = new HashMap<>();
-		result.put(codeID, base64Image);
+		result.put("codeID", codeID);
+		result.put("codeImage", base64Image);
 		return result;
 	}
-	// 错误：无法导入StatusCode，暂时用RuntimeException替代
 	public String checkCaptcha(String codeID, String codeText, String targetURL, String clientIP) {
 		if (!StringUtil.noEmpty(codeID, codeText, targetURL)) {
 			throw new StatusCode(400, "Arguments mustn't be empty");
 		}
 		String redisCodeText = redis.get(codeID + "-CODETEXT", String.class);
 		redis.delete(codeID + "-CODETEXT");
-		if (!codeID.equals(redisCodeText)) {
+		log.info("redisText: " + redisCodeText);
+		log.info("clientText: " + codeText);
+		if (!codeText.equals(redisCodeText)) {
 			throw new StatusCode(403, "Incorrect code text");
 		}
 		String requestKey = SecurityUtil.md5(UUID.randomUUID().toString());
 		String keyID = SecurityUtil.md5(clientIP + "-" + targetURL);
 		redis.set(keyID + "-REQKEY", requestKey, 60);
+		log.info("CreateReqKey: clientIP: " + clientIP + " requestKey: " + requestKey + " targetURL: " + targetURL);
 		return requestKey;
 	}
 	public boolean checkRequestKey(String clientIP, String requestKey, String targetURL) {
+        log.info("CheckReqKey: clientIP: " + clientIP + " requestKey: " + requestKey + " targetURL: " + targetURL);
 		if (!StringUtil.noEmpty(clientIP, requestKey, targetURL)) {
+            log.info("Arguments mustn't be empty.");
 			return false;
 		}
 		String keyID = SecurityUtil.md5(clientIP + "-" + targetURL);
-		String redisReqKey = redis.get(keyID, String.class);
+		String redisReqKey = redis.get(keyID + "-REQKEY", String.class);
 		redis.delete(keyID);
 		return requestKey.equals(redisReqKey);
 	}

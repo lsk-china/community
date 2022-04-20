@@ -51,4 +51,9 @@ public class RedisComponent {
 			conn.del(key);
 		}
 	}
+	public boolean has(String key) {
+		try (Jedis conn = jedisPool.getResource()) {
+			return conn.exists(key);
+		}
+	}
 }

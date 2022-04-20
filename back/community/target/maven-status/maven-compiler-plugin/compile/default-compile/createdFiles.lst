@@ -1,1 +1,6 @@
+com/lsk/community/back/community/model/Asset.class
 com/lsk/community/back/community/CommunityApplication.class
+com/lsk/community/back/community/configure/Beans.class
+com/lsk/community/back/community/model/Reply.class
+com/lsk/community/back/community/client/AuthClient.class
+com/lsk/community/back/community/model/Work.class

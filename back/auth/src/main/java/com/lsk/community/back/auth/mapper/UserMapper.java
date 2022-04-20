@@ -12,8 +12,10 @@ import java.util.List;
 public interface UserMapper {
 	@Select("select * from user")
 	public List<User> queryAllUsers();
-	@Select("select * from user where username=#{data} or email=#{data}")
+	@Select("select * from user where username=#{data} or mail=#{data}")
 	public User queryUserByUsernameOrEmail(@Param("data") String data);
 	@Insert("insert into user(username,password,mail) values(#{username}, #{password}, #{mail})")
 	public void createUser(User user);
+	@Select("select * from user where id=#{id}")
+	public User queryUserById(@Param("id") Integer id);
 }
